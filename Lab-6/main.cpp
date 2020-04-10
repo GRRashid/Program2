@@ -2,15 +2,15 @@
 #include "Predicats.h"
 using namespace std;
 
-bool F(int A) {
+bool F(int& A) {
     return A > 9;
 }
 
-bool sort(int A, int B) {
+bool sort(int& A, int& B) {
     return A > B;
 }
 
-bool find(int A) {
+bool find(int& A) {
     return A == 8;
 }
 
@@ -19,15 +19,15 @@ public:
     int x, y, len;
 };
 
-bool FE(Edges a) {
+bool FE(Edges& a) {
     return a.len < 5;
 }
 
-bool Esort(Edges A, Edges B) {
+bool Esort(Edges& A, Edges& B) {
     return A.len > B.len;
 }
 
-bool Efind(Edges A) {
+bool Efind(Edges& A) {
     return A.len == 8;
 }
 
