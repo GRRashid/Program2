@@ -5,7 +5,9 @@
 class CircuitBufferException: std::exception {
 public:
     CircuitBufferException(std::string  ex): ex_(std::move(ex)) {};
-
+    std::string info() const {
+        return ex_;
+    };
 private:
     std::string ex_;
 };
@@ -37,23 +39,19 @@ public:
     bool AddStart(const T& t) {
         if (size_ >= capacity_)
             return false;
-        T* b = new T[capacity_];
-        b[0] = t;
         for (int i = 0; i < size_; i++)
-            b[i + 1] = array[i];
+            array[i + 1] = array[i];
+        array[0] = t;
         size_++;
-        array = b;
         return true;
     }
     T EreaseStart() {
         if (size_ <= 0)
             throw CircuitBufferException("Buffer is empty");
-        T* b = new T[capacity_];
         T t = array[0];
         for (int i = 0; i < size_ - 1; i++)
-            b[i] = array[i + 1];
+            array[i] = array[i + 1];
         size_--;
-        array = b;
         return t;
     }
 
