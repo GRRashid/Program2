@@ -1,6 +1,4 @@
-#ifndef PROGRAMMING_PROCEDURING_H
-#define PROGRAMMING_PROCEDURING_H
-
+#pragma once
 struct Complex {
     float x;
     float y;
@@ -15,7 +13,6 @@ struct Circule {
     Vector Center;
     float Radius;
 };
-
 
 void swap(int*, int*);
 
@@ -32,6 +29,3 @@ void multy(Complex&, float);
 void offsett(Circule*, Vector*);
 
 void offsett(Circule&, Vector&);
-
-
-#endif //PROGRAMMING_PROCEDURING_H
